@@ -38,7 +38,7 @@ class wk():
     def first(self):
         self.root = tk.Tk()
         self.root.title('prnt.sc_HELPER')
-        self.root.resizable(width=False, height=False)
+        #self.root.resizable(width=False, height=False)
         self.label1 = tk.Label(text = "Input first url:")
         self.label2 = tk.Label(text = "Input last url:")
         self.uurl1 = tk.StringVar()
@@ -194,12 +194,12 @@ class wk():
 
     def buildwindow(self, imgcontent, indx):
         '''Функция для отображения результата работы программы'''
-        self.canvas = tk.Canvas(self.root, width=500,height=500, bg = 'grey')
-        self.canvas.grid(row = 0, column = 0, columnspan = 3)
+        self.canvas = tk.Canvas(self.root, width=1200,height=600, bg = 'grey')
+        self.canvas.grid(row = 0, column = 0, columnspan = 3, )
         self.img1 = Image.open(BytesIO(imgcontent))
-        self.img1.thumbnail((500,500), Image.ANTIALIAS)
+        self.img1.thumbnail((700,600), Image.ANTIALIAS)
         self.img = ImageTk.PhotoImage(self.img1)
-        self.canvas.create_image(250, 250, image=self.img)
+        self.canvas.create_image(600, 300, image=self.img)
         self.btns(indx)
         self.save = tk.Button(text = "save", command = lambda: self.downloadimg(imgcontent, indx), bg = "green", fg = "white", width = 10)
         self.save.grid(row = 1, column = 1, sticky = tk.W, padx = 10, pady = 10)
